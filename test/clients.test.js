@@ -28,9 +28,10 @@ describe('Clients', () => {
         const c1 = clients.add({});
         const c2 = clients.add({});
         const c3 = clients.add({});
+        const expectedClients = [c1, c2, c3];
 
         const allClients = clients.getAll();
 
-        assert.equal(allClients.length, 3);
+        assert.deepEqual(allClients, expectedClients);
     });
 });
