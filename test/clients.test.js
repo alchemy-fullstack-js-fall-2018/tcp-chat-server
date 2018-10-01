@@ -23,4 +23,14 @@ describe('Clients', () => {
 
         assert(!clients.set.has(c1));
     });
+
+    it('gets all clients', () => {
+        const c1 = clients.add({});
+        const c2 = clients.add({});
+        const c3 = clients.add({});
+
+        const allClients = clients.getAll();
+
+        assert.equal(allClients.length, 3);
+    });
 });
