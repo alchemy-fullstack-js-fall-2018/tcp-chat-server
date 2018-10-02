@@ -9,7 +9,7 @@
         "lint": "eslint .",
         "pretest": "npm run lint",
         "test": "jest",
-        "test:watch": "jest --watch"
+        "start": "jest --watch"
     },
     "devDependencies": {
         "eslint": "^5.6.1",
