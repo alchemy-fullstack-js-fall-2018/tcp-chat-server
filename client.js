@@ -7,7 +7,7 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-const socket = net.connect(15678, () => {
+const socket = net.connect(7890, () => {
     rl.setPrompt('');
     rl.prompt();
 
@@ -16,7 +16,7 @@ const socket = net.connect(15678, () => {
     });
     
     socket.on('data', data => {
-        console.log(/*'server:', */ data);
+        console.log(data);
     });
 
     socket.on('close', () => {
