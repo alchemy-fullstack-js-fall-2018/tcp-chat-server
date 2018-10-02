@@ -3,23 +3,28 @@ const Clients = require('../lib/clients');
 
 describe('Clients', () => {
     let clients = null;
+    const c1 = {};
+    const c2 = {};
+    const c3 = {};
     
     beforeEach(() => {
         clients = new Clients();
+        clients.add(c1);
+        clients.add(c2);
+        clients.add(c3);
     });
-
+    
     it('assigns names', () => {
-        const c1 = clients.add({});
-        
-        assert.equal(c1, 'user1');
-
+        assert.equal(c1.username, 'user1');
+        assert.equal(c2.username, 'user2');
+        assert.equal(c3.username, 'user3');
     });
 
     it('remove a client', () => {
-        const c1 = clients.add({});
         clients.remove(c1);
-
-        assert(!clients.set.has(c1));
+        assert(!clients.map.get(c1));
+        assert(clients.map.get(c2));
+        assert(clients.map.get(c3));
     });
 
     // it('gets all clients', () => {
