@@ -7,7 +7,7 @@ const rl = readline.createInterface({
 });
 
 const socket = net.connect(12345, () => {
-    rl.setPrompt('');
+    rl.setPrompt('Say something: ');
     rl.prompt();
 
     rl.on('line', input => {
