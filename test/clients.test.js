@@ -14,24 +14,30 @@ describe('Clients', () => {
         clients.add(c3);
     });
     
-    it('assigns names', () => {
+    it('add assigns names', () => {
         assert.equal(c1.username, 'user1');
         assert.equal(c2.username, 'user2');
         assert.equal(c3.username, 'user3');
     });
 
-    it('removes a client', () => {
+    it('remove removes a client', () => {
         clients.remove(c1);
         assert(!clients.map.get(c1));
         console.log('clients after remove', clients);
     });
 
-    it('allows users to change username', () => {
+    it('changeName allows users to change username', () => {
         const newName = 'Zip';
         clients.changeName(c1, newName);
         assert.equal(c1.username, newName);
         console.log('clients after name change', clients);
 
+    });
+
+    it('broadcastClients returns an array of all users except for the client', () => {
+        const expectedClients = [c1, c3];
+        const broadcastClients = clients.getBroadcastClients(c2);
+        assert.deepEqual(broadcastClients, expectedClients);
     });
 
     // it('gets all clients', () => {
