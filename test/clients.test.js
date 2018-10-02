@@ -20,11 +20,15 @@ describe('Clients', () => {
         assert.equal(c3.username, 'user3');
     });
 
-    it('remove a client', () => {
+    it('removes a client', () => {
         clients.remove(c1);
         assert(!clients.map.get(c1));
-        assert(clients.map.get(c2));
-        assert(clients.map.get(c3));
+        console.log('clients after remove', clients);
+    });
+
+    it('allows users to change username', () => {
+        const newName = 'Zip';
+        
     });
 
     // it('gets all clients', () => {
