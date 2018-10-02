@@ -34,9 +34,40 @@ describe('Clients', () => {
         assert.deepEqual(user3, { 'username': 'user3' });
     });
 
-    it('renames a user', () => {
-        clients.rename(c1.username, 'Mr. Snuggles');
+    describe('rename', () => {
+        beforeEach(() => {
+            clients.rename(c1.username, 'Mr. Snuggles');
+            clients.rename(c2.username, 'Peluche');
+        });
 
-        assert.deepEqual(c1.username, 'Mr. Snuggles');
+        it('returns "true"', () => {
+            const renamed = clients.rename(c3.usernname, 'Banana');
+            assert.deepEqual(renamed, true);
+        });
+
+        it('using old name does NOT return the client', () => {   
+            const user1 = clients.getClient('user1');
+            assert.deepEqual(user1, null);
+        });
+
+        it('using new name does return the client', () => {
+            const user1 = clients.getClient('Mr. Snuggles');
+            assert.deepEqual(user1, { 'username': 'Mr. Snuggles' });
+        });
+
+        it('property on clients object changed', () => {
+            const user1 = clients.getClient('Mr. Snuggles');
+            assert.deepEqual(user1.username, 'Mr. Snuggles');
+        });
+
+        it('canNOT rename a user to an existing username',() => {
+            const user1 = clients.getClient('Mr. Snuggles');
+            const user3 = clients.getClient('user3');
+            const renamed = clients.rename(user3.username, user1.username);
+
+            assert.equal(renamed, false);
+            assert.deepEqual(user1.username, 'Mr. Snuggles');
+            assert.deepEqual(user3.username, 'user3');
+        });
     });
 });
