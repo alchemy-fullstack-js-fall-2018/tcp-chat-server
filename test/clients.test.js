@@ -15,23 +15,29 @@ describe('Clients', () => {
         clients.add(c2);
         clients.add(c3);
     });
-    
-    it('with "add" method, name is returned as username property of client', () => {
-        
-        assert.equal(c1.username, 'user1');
-        assert.equal(c2.username, 'user2');
-        assert.equal(c3.username, 'user3');
+
+    describe('add', () => {
+
+        it('with "add" method, name is returned as username property of client', () => {
+            
+            assert.equal(c1.username, 'user1');
+            assert.equal(c2.username, 'user2');
+            assert.equal(c3.username, 'user3');
+        });
     });
+    
+    describe('getClient', () => {
 
-    it('with "getClient" method, returned object is the same as what was added', () => {
-
-        const user1 = clients.getClient(c1.username);
-        const user2 = clients.getClient(c2.username);
-        const user3 = clients.getClient(c3.username);
-
-        assert.deepEqual(user1, { 'username': 'user1' });
-        assert.deepEqual(user2, { 'username': 'user2' });
-        assert.deepEqual(user3, { 'username': 'user3' });
+        it('returned object is the same as what was added', () => {
+    
+            const user1 = clients.getClient(c1.username);
+            const user2 = clients.getClient(c2.username);
+            const user3 = clients.getClient(c3.username);
+    
+            assert.deepEqual(user1, { 'username': 'user1' });
+            assert.deepEqual(user2, { 'username': 'user2' });
+            assert.deepEqual(user3, { 'username': 'user3' });
+        });
     });
 
     describe('rename', () => {
@@ -60,7 +66,7 @@ describe('Clients', () => {
             assert.deepEqual(user1.username, 'Mr. Snuggles');
         });
 
-        it('canNOT rename a user to an existing username',() => {
+        it('canNOT rename a user to an existing username', () => {
             const user1 = clients.getClient('Mr. Snuggles');
             const user3 = clients.getClient('user3');
             const renamed = clients.rename(user3.username, user1.username);
@@ -68,6 +74,18 @@ describe('Clients', () => {
             assert.equal(renamed, false);
             assert.deepEqual(user1.username, 'Mr. Snuggles');
             assert.deepEqual(user3.username, 'user3');
+        });
+    });
+
+    describe('all', () => {
+        it('returns an array of all clients', () => {
+            const allUsers = clients.all();
+
+            assert.deepEqual(allUsers, [
+                { 'username': 'user1' }, 
+                { 'username': 'user2' }, 
+                { 'username': 'user3' }
+            ]);
         });
     });
 });
