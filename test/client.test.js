@@ -1,7 +1,7 @@
 const assert = require('assert');
-const chatRoom = require('./lib/clat-room');
+const Clients = require('../lib/chat-room');
 
-describe('Clients', () => {
+describe('clients', () => {
     
     const c1 = {};
     const c2 = {};
@@ -16,9 +16,9 @@ describe('Clients', () => {
     });
 
     it('assigns a user name', () => {
-        assert.equal(c1.clients, 'user1');
-        assert.equal(c1.clients, 'user2');
-        assert.equal(c1.clients, 'user3');
+        assert.equal(c1.username, 'user1');
+        assert.equal(c1.username, 'user2');
+        assert.equal(c1.username, 'user3');
     });
 
     it('stores a client', () => {
