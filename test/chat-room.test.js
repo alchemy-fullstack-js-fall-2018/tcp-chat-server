@@ -34,23 +34,22 @@ describe('chat room', () => {
         assert.deepEqual(chatRoom.getClient(userName2), client2);
     });
 
-    /*
-Add a Test 'can not rename to existing user name'. Should not throw an error, just do not do the requested operation
-Create a new ChatRoom and add two users
-Call .rename(username1, username2)
-assert that return value from .rename is false
-assert that username1 and username2 return their original client objects
-*/
-
-    it.skip('', () => {
+    it('returns all clients', () => {
         const chatRoom = new ChatRoom();
-    
+        const client1 = {}, client2 = {}, client3 = {};
+        chatRoom.add(client1);
+        chatRoom.add(client2);
+        chatRoom.add(client3);
+        assert.deepEqual(chatRoom.getAllClients(), [client1, client2, client3]);
     });
 
-    /*
-Test that calling .all() on the chat room returns an array of all clients
-Hint: Use the following to get all values from a map (example assumes map is stored as this.clients):
-return [...this.clients.values()];
-*/
+    it('returns all clients except for one specified client', () => {
+        const chatRoom = new ChatRoom();
+        const client1 = {}, client2 = {}, client3 = {};
+        chatRoom.add(client1);
+        chatRoom.add(client2);
+        chatRoom.add(client3);
+        assert.deepEqual(chatRoom.getBroadcastClients(client2), [client1, client3]);
+    });
 
 });
