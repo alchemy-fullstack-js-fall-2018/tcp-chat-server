@@ -15,12 +15,12 @@ describe('Clients', () => {
 
     });
 
-    // it('remove a client', () => {
-    //     const c1 = clients.add({});
-    //     clients.remove(c1);
+    it('remove a client', () => {
+        const c1 = clients.add({});
+        clients.remove(c1);
 
-    //     assert(!clients.set.has(c1));
-    // });
+        assert(!clients.set.has(c1));
+    });
 
     // it('gets all clients', () => {
 
