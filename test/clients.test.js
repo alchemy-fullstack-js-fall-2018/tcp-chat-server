@@ -23,14 +23,12 @@ describe('Clients', () => {
     it('remove removes a client', () => {
         clients.remove(c1);
         assert(!clients.map.get(c1));
-        console.log('clients after remove', clients);
     });
 
     it('changeName allows users to change username', () => {
         const newName = 'Zip';
         clients.changeName(c1, newName);
         assert.equal(c1.username, newName);
-        console.log('clients after name change', clients);
 
     });
 
@@ -42,7 +40,6 @@ describe('Clients', () => {
     it('broadcastClients returns an array of all users except for the client', () => {
         const expectedClients = [c1, c3];
         const broadcastClients = clients.getBroadcastClients(c2);
-        console.log(broadcastClients, expectedClients);
         assert.deepEqual(broadcastClients, expectedClients);
     });
 

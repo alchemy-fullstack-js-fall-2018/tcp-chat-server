@@ -20,7 +20,7 @@ const socket = net.connect(12345, () => {
 
     socket.on('close', () => {
         console.log('left server');
-        socket.destory();
+        socket.destroy();
     });
 });
 
