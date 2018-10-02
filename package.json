@@ -1,0 +1,25 @@
+{
+  "name": "tcp-chat-server",
+  "version": "1.0.0",
+  "description": "TCP Chat Server ===",
+  "main": "server.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sophiegraham/tcp-chat-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sophiegraham/tcp-chat-server/issues"
+  },
+  "homepage": "https://github.com/sophiegraham/tcp-chat-server#readme"
+}
