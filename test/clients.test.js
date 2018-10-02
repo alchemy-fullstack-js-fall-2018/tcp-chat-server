@@ -6,13 +6,12 @@ describe('Clients', () => {
     
     beforeEach(() => {
         clients = new Clients();
-        clients.add('foo');
-        console.log('clients', clients);
-
     });
 
     it('assigns names', () => {
-        assert.equal(clients, 'foo');
+        const c1 = clients.add({});
+        
+        assert.equal(c1, 'user1');
 
     });
 
