@@ -7,7 +7,7 @@ const rl = readline.createInterface({
 });
 
 const socket = net.connect(15678, () => {
-    rl.setPrompt('say something:');
+    rl.setPrompt('');
     rl.prompt();
 
     rl.on('line', input => {
@@ -15,10 +15,12 @@ const socket = net.connect(15678, () => {
     });
 
     socket.on('data', data => {
+        /* eslint-disable-next-line no-console */
         console.log(/*'server says:', */ data);
     });
 
     socket.on('close', () => {
+        /* eslint-disable-next-line no-console */
         console.log('server left, sorry bud!');
         socket.destroy();
     });
