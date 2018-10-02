@@ -14,12 +14,12 @@ const client = net.connect(15678, () => {
         client.write(input);
     });
     
-    client.on('data', data => {
-        console.log('server sez:', data);
-    });
+    // client.on('data', data => {
+    //     // console.log('server sez:', data);
+    // });
 
     client.on('close', () => {
-        console.log('server left :(');
+        // console.log('server left :(');
         client.destroy();
     });
 });
