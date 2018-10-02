@@ -33,4 +33,10 @@ describe('Clients', () => {
         assert.deepEqual(user2, { 'username': 'user2' });
         assert.deepEqual(user3, { 'username': 'user3' });
     });
+
+    it('renames a user', () => {
+        clients.rename(c1.username, 'Mr. Snuggles');
+
+        assert.deepEqual(c1.username, 'Mr. Snuggles');
+    });
 });
