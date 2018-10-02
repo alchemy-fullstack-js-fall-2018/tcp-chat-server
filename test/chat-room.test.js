@@ -36,6 +36,13 @@ describe('Chatroom', () => {
         assert.equal(chatRoom.getClient(newName).username, newName);
     });
 
+    it('doesnt allow renaming to existing usernames', () => {
+        const renameExists = chatRoom.rename(c1.username, c2.username);
+        assert.equal(renameExists, false);
+        assert.equal(c1, chatRoom.getClient(c1.username));
+        assert.equal(c2, chatRoom.getClient(c2.username));
+    });
+
     it('stores clients', () => {
         const allClients = chatRoom.all();
         assert.deepEqual(allClients, [c1, c2, c3]);
