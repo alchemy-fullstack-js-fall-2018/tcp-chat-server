@@ -28,7 +28,10 @@ describe('Clients', () => {
 
     it('allows users to change username', () => {
         const newName = 'Zip';
-        
+        clients.changeName(c1, newName);
+        assert.equal(c1.username, newName);
+        console.log('clients after name change', clients);
+
     });
 
     // it('gets all clients', () => {
