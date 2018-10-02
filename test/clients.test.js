@@ -34,24 +34,16 @@ describe('Clients', () => {
 
     });
 
+    it('getAllClients returns all clients', () => {
+        const allClients = clients.getAllClients();
+        assert.deepEqual(allClients, [c1, c2, c3]);
+    });
+
     it('broadcastClients returns an array of all users except for the client', () => {
         const expectedClients = [c1, c3];
         const broadcastClients = clients.getBroadcastClients(c2);
+        console.log(broadcastClients, expectedClients);
         assert.deepEqual(broadcastClients, expectedClients);
     });
-
-    // it('gets all clients', () => {
-
-    //     const expectedClients = [c1];
-
-    //     const allClients = clients.getAll();
-
-    //     assert.deepEqual(allClients, expectedClients);
-    // });
-
-    // it('gets all clients except self', () =>{
-    //     const broadcastClients = clients.getBroadcastClients();
-    //     assert.deepEqual(broadcastClients, )
-    // })
 
 });
