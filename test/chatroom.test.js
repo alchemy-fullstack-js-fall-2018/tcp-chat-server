@@ -23,12 +23,11 @@ describe('chatroom?', () => {
         assert.deepEqual(allClients, [c1, c2]);
     });
 
-    it('renames a user', () => {
+    it('renames a user and new username returns client', () => {
         const client = clients.rename('user1', 'claire');
         assert.equal(client.username, 'claire');
-    });
-
-    // it('new username returns client', () => {
         
-    // })
+        const returnedClient = clients.getClient('claire');
+        assert.equal(returnedClient.username, 'claire');
+    });
 });
