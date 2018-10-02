@@ -26,6 +26,13 @@ describe('Chatroom', () => {
         assert.deepEqual(client, c1);
     });
 
+    it('removes a client', () => {
+        chatRoom.remove(c2.username);
+        const allClients = chatRoom.all();
+        assert.deepEqual(allClients, [c1, c3]);
+
+    });
+
     it('it renames a user', () => {
         const client = c1.username;
         const newName = 'I-Love-ALC';

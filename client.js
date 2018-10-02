@@ -6,7 +6,7 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-const socket = net.connect(8080, () => {
+const socket = net.connect(15678, () => {
     rl.setPrompt('');
     rl.prompt();
 
@@ -23,4 +23,6 @@ const socket = net.connect(8080, () => {
         socket.destroy();
     });
 });
+
+socket.setEncoding('utf8');
 
