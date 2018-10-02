@@ -1,5 +1,5 @@
 const assert = require('assert');
-const Clients = require('./lib/client');
+const chatRoom = require('./lib/clat-room');
 
 describe('Clients', () => {
     
