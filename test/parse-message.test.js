@@ -3,10 +3,6 @@ const parseMessage = require('../lib/parse-message.js');
 
 describe('parse message', () => {
 
-    const msgBroadcastAll = '@all hello world!';
-    const msgDirectMessage = '@dm:exampleUser Hello this is a direct message!';
-    const msgChangeName = '@nick:exampleUser';
-
     it('returns null when passed a string that does not start with @', () => {
         const result = parseMessage('all hello world!');
         const expected = null;
