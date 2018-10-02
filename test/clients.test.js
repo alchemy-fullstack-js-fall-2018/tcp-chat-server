@@ -24,15 +24,15 @@ describe('Clients', () => {
         assert.deepEqual(allClients, [c1.username, c2.username, c3.username]);
     });
 
-    it.only('removes a client', () => {
+    it('removes a client', () => {
         clients.remove(c1.username);
         const allClients = clients.getAllClients();
         assert.deepEqual(allClients, [c2.username, c3.username]);
     });
 
     it('will give a list of clients other than the sender', () => {
-        const broadcast = clients.getBroadcastClients(c3);
-        assert.deepEqual(broadcast, [c1, c2]);
+        const broadcast = clients.getBroadcastClients(c3.username);
+        assert.deepEqual(broadcast, [c1.username, c2.username]);
     });
 
 });
