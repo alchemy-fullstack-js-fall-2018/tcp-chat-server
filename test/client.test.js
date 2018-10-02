@@ -8,6 +8,7 @@ describe('Clients', () => {
 
     beforeEach(() => {
         clients = new Clients();
+        clients.add([]);
     });
 
     it('assigns a user name', () => {
