@@ -30,4 +30,9 @@ describe('Clients', () => {
         assert.deepEqual(allClients, [c2, c3]);
     });
 
+    it('will give a list of clients other than the sender', () => {
+        const broadcast = clients.getBroadcastClients(c3);
+        assert.deepEqual(broadcast, [c1, c2]);
+    });
+
 });
