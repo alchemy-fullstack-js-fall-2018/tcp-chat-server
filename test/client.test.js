@@ -17,8 +17,8 @@ describe('clients', () => {
 
     it('assigns a user name', () => {
         assert.equal(c1.username, 'user1');
-        assert.equal(c1.username, 'user2');
-        assert.equal(c1.username, 'user3');
+        assert.equal(c2.username, 'user2');
+        assert.equal(c3.username, 'user3');
     });
 
     it('stores a client', () => {
