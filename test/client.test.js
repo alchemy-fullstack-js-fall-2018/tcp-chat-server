@@ -37,4 +37,9 @@ describe('clients', () => {
         const broadcast = clients.getBroadcastClients(c1);
         assert.deepEqual(broadcast, [c2, c3]);
     });
+    
+    it('renames a client', () => {
+        const rename = clients.renameClient(c1);
+        assert.deepEqual(rename, c1.username)
+    });
 });
