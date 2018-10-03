@@ -47,7 +47,8 @@ describe('Clients', () => {
         });
 
         it('returns "true"', () => {
-            const renamed = clients.rename(c3.usernname, 'Banana');
+            const user3 = clients.getClient('user3');
+            const renamed = clients.rename(user3.username, 'Banana');
             assert.deepEqual(renamed, true);
         });
 
@@ -90,7 +91,7 @@ describe('Clients', () => {
     });
 
     describe('getBroadcastClients', () => {
-        
+
         it('gives back list of clients less the sender', () => {
             const broadcast = clients.getBroadcastClients(c1);
 
