@@ -1,0 +1,37 @@
+{
+    "name": "app",
+    "version": "0.1.0",
+    "directories": {
+        "lib": "lib",
+        "test": "test"
+    },
+    "scripts": {
+        "lint": "eslint .",
+        "pretest": "npm run lint",
+        "test": "jest",
+        "start": "jest --watch"
+    },
+    "devDependencies": {
+        "eslint": "^5.6.1",
+        "jest": "^23.6.0"
+    },
+    "eslintConfig": {
+        "root": true,
+        "env": {
+            "node": true
+        },
+        "extends": [
+            "plugin:vue/essential",
+            "eslint:recommended"
+        ],
+        "rules": {},
+        "parserOptions": {
+            "parser": "babel-eslint"
+        }
+    },
+    "author": "Sarah Flynn <sflynn.pdx@gmail.com>",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/sarahflynn/greet-and-calculate.git"
+    }
+}
