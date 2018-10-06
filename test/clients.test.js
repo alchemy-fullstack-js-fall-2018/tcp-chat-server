@@ -32,6 +32,15 @@ describe('Clients', () => {
         });
     });
 
+    
+    describe('rename a client', () => {
+        it('will return true when the client has been updated', () => {
+            const user2 = clients.getClient('user2');
+            const renamed = clients.rename(user2.username, 'Hambone');
+            assert.deepEqual(renamed, true);
+        });
+    });
+
     it('removes a client', () => {
         clients.remove(c1.username);
         const allClients = clients.getAllClients();
