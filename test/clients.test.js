@@ -6,6 +6,7 @@ describe('Clients', () => {
     const c2 = {};
     const c3 = {};
     let clients = null;
+
     beforeEach(() => {
         clients = new Clients();
         clients.add(c1);
@@ -24,6 +25,13 @@ describe('Clients', () => {
         assert.deepEqual(allClients, [c1, c2, c3]);
     });
 
+    describe('getClient', () => {
+        it('will return the same client object that was added', () => {
+            const user1 = clients.getClient(c1.username);
+            assert.deepEqual(user1, { 'username': 'user1' });            
+        });
+    });
+
     it('removes a client', () => {
         clients.remove(c1.username);
         const allClients = clients.getAllClients();
@@ -34,5 +42,6 @@ describe('Clients', () => {
         const broadcast = clients.getBroadcastClients(c3);
         assert.deepEqual(broadcast, [c1, c2]);
     });
+
 
 });
