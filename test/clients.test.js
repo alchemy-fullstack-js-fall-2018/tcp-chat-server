@@ -29,15 +29,34 @@ describe('Clients', () => {
         it('will return the same client object that was added', () => {
             const user1 = clients.getClient(c1.username);
             assert.deepEqual(user1, { 'username': 'user1' });            
-        });
+        });        
     });
 
     
     describe('rename a client', () => {
+        beforeEach(() => {
+            clients.rename(c3.username, 'Scruggs');
+        });
+
         it('will return true when the client has been updated', () => {
             const user2 = clients.getClient('user2');
             const renamed = clients.rename(user2.username, 'Hambone');
             assert.deepEqual(renamed, true);
+        });
+
+        it('will not return the client by its old name', () => {
+            const user3 = clients.getClient('user3');
+            assert.deepEqual(user3, null);
+        });
+
+        it('will not give a user a name already in use', () => {
+            const user1 = clients.getClient('user1');
+            const user3 = clients.getClient('Scruggs');
+            const renamed = clients.rename(user1.username, user3.username);
+
+            assert.equal(renamed, false);
+            assert.deepEqual(user3.username, 'Scruggs');
+            assert.deepEqual(user1.username, 'user1');
         });
     });
 
