@@ -37,6 +37,11 @@ describe('Clients', () => {
         assert.deepEqual(broadcast, [c2, c3]);
     });
 
+    it('gives back list of ALL clients', () => {
+        const broadcast = clients.getAllClients(c1);
+        assert.deepEqual(broadcast, [c1, c2, c3]);
+    });
+
     it('rename works properly', () => {
         const clients = new Clients();
         const c1 = {};
