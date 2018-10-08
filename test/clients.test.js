@@ -41,7 +41,7 @@ describe('Clients', () => {
         const clients = new Clients();
         const c1 = {};
         clients.add(c1);
-        newUserName = 'bob';
+        let newUserName = 'bob';
         const result = clients.rename(c1.userName, newUserName);
         assert.ok(result);
         assert.equal(c1.userName, newUserName);

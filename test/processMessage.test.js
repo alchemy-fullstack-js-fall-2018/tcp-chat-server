@@ -3,11 +3,9 @@ const processMessage = require('../lib/processMessage');
 
 describe('shout message', () => {
 
-    it('shouts when message starts with !', () => {
-        assert.equal(processMessage('!hello world'), 'HELLO WORLD');
-    });
+    it('ignores chat commands that do not start with: @', () => {
 
-    it('no shouting when message does not start with !', () => {
-        assert.equal(processMessage('hello world'), 'hello world');
+        let response = processMessage('Hey whats yous guys doings here?');
+        assert.equal(response, null);
     });
 });
