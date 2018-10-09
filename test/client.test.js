@@ -30,7 +30,6 @@ describe('clients', () => {
         clients.remove(c1);
         const allClients = clients.getAllClients();
         assert.deepEqual(allClients, [c2, c3]);
-
     });
 
     it('gives back list of clients (minus sender)', () => {
@@ -40,6 +39,6 @@ describe('clients', () => {
     
     it('renames a client', () => {
         const rename = clients.renameClient(c1);
-        assert.deepEqual(rename, c1.username)
+        assert.deepEqual(rename, c1.username);
     });
 });

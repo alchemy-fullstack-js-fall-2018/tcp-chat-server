@@ -7,21 +7,11 @@ describe('parse messages', () => {
         assert.equal(parseMessage('hello world'), null);
     });
 
-    it('returns an object with no arg for @all', () => {
-        const result = parseMessage('@all hello world');
-        const expected = {
-            command: 'all',
-            username: '',
-            text: 'hello world'
-        };
-        assert.deepEqual(result, expected);
-    });
-
     it('returns a complete object for @dm', () => {
         const result = parseMessage('@dm:exampleUser Hello this is a direct message!');
         const expected = {
             command: 'dm',
-            username: 'exampleUser',
+            arg: 'exampleUser',
             text: 'Hello this is a direct message!'
         };
         assert.deepEqual(result, expected);
@@ -31,8 +21,18 @@ describe('parse messages', () => {
         const result = parseMessage('@nick:exampleUser');
         const expected = {
             command: 'nick',
-            username: 'exampleUser',
+            arg: 'exampleUser',
             text: ''
+        };
+        assert.deepEqual(result, expected);
+    });
+
+    it('returns an object with no arg for @all', () => {
+        const result = parseMessage('@all hello world');
+        const expected = {
+            command: 'all',
+            arg: '',
+            text: 'hello world'
         };
         assert.deepEqual(result, expected);
     });
