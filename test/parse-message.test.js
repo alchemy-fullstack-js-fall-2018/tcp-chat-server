@@ -16,5 +16,4 @@ describe('parseMessage', () => {
         };
         assert.deepEqual(parseMessage(msg), expected);
     });
-
 });
