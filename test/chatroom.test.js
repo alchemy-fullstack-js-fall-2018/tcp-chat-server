@@ -23,11 +23,35 @@ describe('chatroom?', () => {
         assert.deepEqual(allClients, [c1, c2]);
     });
 
-    it('renames a user and new username returns client', () => {
+    it('renames a user and new username returns client, old username does not return the client', () => {
         const client = clients.rename('user1', 'claire');
         assert.equal(client.username, 'claire');
         
         const returnedClient = clients.getClient('claire');
         assert.equal(returnedClient.username, 'claire');
+
+        const user1 = clients.getClient('user1');
+        assert.deepEqual(user1, null);
     });
+
+    it('returns an array of all clients', () => {
+        const allUsers = clients.getAllClients();
+
+        assert.deepEqual(allUsers, [
+            { 'username': 'user1' },
+            { 'username': 'user2' }
+        ]);
+    });
+
+    it('gives back a list of clients less the sender', () => {
+        const broadcast = clients.getBroadcastClients(c1);
+
+        assert.deepEqual(broadcast, [
+            { 'username': 'user2' }
+        ]);
+    });
+
+
+
+
 });
