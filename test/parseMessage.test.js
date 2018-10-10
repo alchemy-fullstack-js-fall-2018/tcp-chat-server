@@ -21,6 +21,9 @@ describe('parseMessage', () => {
     });
 
     it('atAll works', () => {
-
+        assert.deepEqual(parseMessage('@all hi there'), {
+            command: '@all',
+            text: 'hi there'
+        });
     });
 });
