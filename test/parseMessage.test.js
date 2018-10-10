@@ -2,8 +2,8 @@ const assert = require('assert');
 const parseMessage = require('../lib/parseMessage');
 
 describe('parseMessage', () => {
-    it('returns the message if @ isn\'t the first character', () => {
-        assert.equal(parseMessage('hello world'), 'hello world');
+    it('returns null if @ isn\'t the first character', () => {
+        assert.equal(parseMessage('hello world'), null);
     });
 
     it('returns an object with command, arg, and text when running something like: command:arg text', () => {
@@ -21,6 +21,6 @@ describe('parseMessage', () => {
     });
 
     it('atAll works', () => {
-        
+
     });
 });
