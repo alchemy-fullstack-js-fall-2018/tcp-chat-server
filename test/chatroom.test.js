@@ -40,7 +40,15 @@ describe('chatroom?', () => {
         ]);
     });
 
-    
+    it('gives back a list of clients less the sender', () => {
+        const broadcast = clients.getBroadcastClients(c1);
+
+        assert.deepEqual(broadcast, [
+            { 'username': 'user2' }
+        ]);
+    });
+
+
 
 
 });
