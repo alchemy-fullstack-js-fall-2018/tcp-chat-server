@@ -43,4 +43,9 @@ describe('ChatRoom', () => {
         assert.deepEqual(broadcastClients, expectedClients);
     });
 
+    it('getClient returns a client by id', () => {
+        const returnedClient = clients.getClient(c1.username);
+        assert.deepEqual(returnedClient, c1);
+    });
+
 });
