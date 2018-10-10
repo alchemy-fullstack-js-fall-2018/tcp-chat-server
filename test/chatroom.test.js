@@ -30,4 +30,17 @@ describe('chatroom?', () => {
         const returnedClient = clients.getClient('claire');
         assert.equal(returnedClient.username, 'claire');
     });
+
+    it('returns an array of all clients', () => {
+        const allUsers = clients.getAllClients();
+
+        assert.deepEqual(allUsers, [
+            { 'username': 'user1' },
+            { 'username': 'user2' }
+        ]);
+    });
+
+    
+
+
 });
