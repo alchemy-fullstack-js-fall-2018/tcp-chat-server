@@ -5,11 +5,22 @@ describe('parseMessage', () => {
     it('returns the message if @ isn\'t the first character', () => {
         assert.equal(parseMessage('hello world'), 'hello world');
     });
+
     it('returns an object with command, arg, and text when running something like: command:arg text', () => {
-        assert.deepEqual(parseMessage('@nick:sarah I am changing my name'), {
+        assert.deepEqual(parseMessage('@nick:sarah'), {
             command: '@nick',
             arg: 'sarah',
-            text: 'I am changing my name'
+            text: ''
         });
+
+        assert.deepEqual(parseMessage('@dm:user2 Hi there'), {
+            command: '@dm',
+            arg: 'user2',
+            text: 'Hi there'
+        });
+    });
+
+    it('atAll works', () => {
+        
     });
 });

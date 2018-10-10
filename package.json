@@ -9,11 +9,13 @@
         "lint": "eslint .",
         "pretest": "npm run lint",
         "test": "jest",
-        "start": "jest --watch"
+        "test:watch": "jest --watch",
+        "start:watch": "nodemon server.js"
     },
     "devDependencies": {
         "eslint": "^5.6.1",
-        "jest": "^23.6.0"
+        "jest": "^23.6.0",
+        "nodemon": "^1.18.4"
     },
     "eslintConfig": {
         "root": true,

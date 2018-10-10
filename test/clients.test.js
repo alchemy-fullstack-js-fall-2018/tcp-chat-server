@@ -1,14 +1,14 @@
 const assert = require('assert');
-const Clients = require('../lib/clients');
+const ChatRoom = require('../lib/clients');
 
-describe('Clients', () => {
+describe('ChatRoom', () => {
     let clients = null;
     const c1 = {};
     const c2 = {};
     const c3 = {};
     
     beforeEach(() => {
-        clients = new Clients();
+        clients = new ChatRoom();
         clients.add(c1);
         clients.add(c2);
         clients.add(c3);
