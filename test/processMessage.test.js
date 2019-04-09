@@ -11,9 +11,9 @@ describe('shout message', () => {
 
     it('returns object if the string is valid message', () => {
 
-        let response = processMessage('@all():null message');
+        let response = processMessage('@all:null message');
         let expected = {
-            command: 'all()',
+            command: 'all',
             arg: 'null',
             text: 'message'
         };

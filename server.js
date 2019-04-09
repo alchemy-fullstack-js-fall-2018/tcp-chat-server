@@ -1,4 +1,3 @@
-const server = require('./lib/app');
-const PORT = 7890;
-server.listen(PORT);
-
+const app = require('./lib/app');
+//eslint-disable-next-line
+app().listen(9870, () => console.log('hi there'));
