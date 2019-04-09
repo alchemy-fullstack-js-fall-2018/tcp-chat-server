@@ -24,7 +24,7 @@ describe('Clients', () => {
         const allClients = clients.getAllClients();
         assert.deepEqual(allClients, [c1, c2, c3]);
     });
-    
+
     it('removes a client', () => {
         clients.remove(c2);
         const allClients = clients.getAllClients();
@@ -33,15 +33,20 @@ describe('Clients', () => {
     });
 
     it('gives back list of clients (minus sender)', () => {
-        const broadcast = clients.getBroadcastClients(c1);
+        const broadcast = clients.broadcast(c1);
         assert.deepEqual(broadcast, [c2, c3]);
+    });
+
+    it('gives back list of ALL clients', () => {
+        const broadcast = clients.getAllClients(c1);
+        assert.deepEqual(broadcast, [c1, c2, c3]);
     });
 
     it('rename works properly', () => {
         const clients = new Clients();
         const c1 = {};
         clients.add(c1);
-        newUserName = 'bob';
+        let newUserName = 'bob';
         const result = clients.rename(c1.userName, newUserName);
         assert.ok(result);
         assert.equal(c1.userName, newUserName);

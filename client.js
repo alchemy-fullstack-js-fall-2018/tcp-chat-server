@@ -1,28 +1,22 @@
-/* eslint-disable no-console */
-const net = require('net');
+const { createConnection } = require('net');
 const readline = require('readline');
 
 const rl = readline.createInterface({
     input: process.stdin,
-    output: process.stdout
+    output: process.stdout,
+    prompt: '> '
 });
 
-const socket = net.connect(7890, () => {
-    rl.setPrompt('');
+const client = createConnection(9870, () => {
     rl.prompt();
-
-    rl.on('line', input => {
-        socket.write(input);
-    });
-    
-    socket.on('data', data => {
-        console.log(data);
-    });
-
-    socket.on('close', () => {
-        console.log('server left');
-        socket.destroy();
+    rl.on('line', line => {
+        client.write(line);
+        rl.prompt();
     });
 });
 
-socket.setEncoding('utf8');
+client.setEncoding('utf8');
+
+client.on('data', data => {
+    rl.write(`${data}\n`);
+});
